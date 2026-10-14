@@ -1,0 +1,53 @@
+@import url('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;600&display=swap');
+@import 'tailwindcss';
+@import './site.css';
+@import './site-home.css';
+@import './site-services.css';
+@import './site-produce.css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Fraunces', Georgia, ui-serif, serif;
+    --color-forest: #022c22; /* Emerald 950 (Dark Premium Green) */
+    --color-forest-deep: #064e3b; /* Emerald 900 */
+    --color-teal: #059669; /* Emerald 600 (Primary Action) */
+    --color-teal-dark: #047857; /* Emerald 700 (Hover) */
+    --color-leaf: #10b981; /* Emerald 500 (Highlight) */
+    --color-mint: #f8fafc; /* Very light slate for backgrounds */
+    --color-mist: #f1f5f9; /* Slate 100 for subtle sections */
+    --color-ink: #0f172a; /* Slate 900 for main text */
+    --color-muted: #64748b; /* Slate 500 for secondary text */
+    --color-orange: #f59e0b; /* Amber */
+    --color-tomato: #ef4444; /* Red */
+    --color-peach: #e0f2fe; /* Light sky blue */
+    --color-avocado: #10b981; /* Green for success */
+    --color-line: #e2e8f0; /* Slate 200 for borders */
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-white font-sans text-ink antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-serif tracking-tight;
+    }
+}
+
+@utility wrap {
+    width: min(1180px, 92%);
+    margin-inline: auto;
+}

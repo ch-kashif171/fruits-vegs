@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Zahrat Al Madina">
+  <circle cx="64" cy="64" r="62" fill="#ffffff"/>
+  <circle cx="64" cy="64" r="56" fill="#0f3d2e"/>
+  <path fill="#8aa63a" d="M64 28c18 14 28 28 28 44 0 16-12 28-28 28S36 88 36 72c0-16 10-30 28-44z"/>
+  <path fill="#eaf4ee" d="M64 40c2 18 2 28 0 44-8-8-14-18-16-30 6-6 11-10 16-14z"/>
+  <circle cx="64" cy="96" r="6" fill="#f28c28"/>
+</svg>

@@ -43,6 +43,8 @@
     box-shadow: 0px 2px 10px 1px lightgray;
     border-radius: 20%;
     padding: 10px;
+    background-color: #fff;
+    mix-blend-mode: multiply;
 }
 .pv-card-body {
     margin-top: 10px;

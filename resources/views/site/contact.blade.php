@@ -35,7 +35,7 @@
                         <div>
                             <h3 class="font-bold text-forest-deep mb-2">Numbers</h3>
                             <ul class="text-sm text-muted space-y-1">
-                                <li><b class="text-ink">Sales Manager:</b> <br><a href="tel:{{ setting('sales_phone') ?? '+971502528036' }}" class="hover:text-teal transition-colors">{{ str_replace(setting('sales_phone') ?? '+971 50 252 8036', '', '') }}{{ setting('sales_phone') ?? '+971 50 252 8036' }}</a></li>
+                                <li><b class="text-ink">Malik Zafar Mureed:</b> <br><a href="tel:{{ setting('sales_phone') ?? '+971502528036' }}" class="hover:text-teal transition-colors">{{ str_replace(setting('sales_phone') ?? '+971 50 252 8036', '', '') }}{{ setting('sales_phone') ?? '+971 50 252 8036' }}</a></li>
                                 <li><b class="text-ink mt-2 inline-block">Telephone:</b> <br><a href="tel:{{ setting('telephone') ?? '+971505386979' }}" class="hover:text-teal transition-colors">{{ setting('telephone') ?? '+971 50 538 6979' }}</a></li>
                             </ul>
                         </div>

@@ -105,7 +105,7 @@ unset($__defined_vars, $__key, $__value); ?>
                 <div>
                     <h4 class="mb-4 font-serif text-xl text-white">Get in touch</h4>
                     <ul class="space-y-1">
-                        <li><?php echo e(setting('sales_label') ?? 'Sales Manager'); ?>: <a class="text-[#9be0cf] hover:underline" href="tel:<?php echo e($salesTel); ?>"><?php echo e(setting('sales_phone') ?? ''); ?></a></li>
+                        <li><?php echo e(setting('sales_label') ?? 'Malik Zafar Mureed'); ?>: <a class="text-[#9be0cf] hover:underline" href="tel:<?php echo e($salesTel); ?>"><?php echo e(setting('sales_phone') ?? ''); ?></a></li>
                         <li><?php echo e(setting('telephone_label') ?? 'Telephone'); ?>: <a class="text-[#9be0cf] hover:underline" href="tel:<?php echo e($officeTel); ?>"><?php echo e(setting('telephone') ?? ''); ?></a></li>
                         <li><a class="text-[#9be0cf] hover:underline" href="mailto:<?php echo e(setting('email_info') ?? ''); ?>"><?php echo e(setting('email_info') ?? ''); ?></a></li>
                         <li><a class="text-[#9be0cf] hover:underline" href="mailto:<?php echo e(setting('email_hr') ?? ''); ?>"><?php echo e(setting('email_hr') ?? ''); ?></a></li>

@@ -21,7 +21,7 @@ class SiteContentSeeder extends Seeder
             'tagline' => 'Fruits & Vegetables',
             'logo_path' => '/images/logo.png',
             'address' => 'Shop No 65, Block Number 2, Central Fruit & Vegetable Market, Al Aweer, Dubai, UAE',
-            'sales_label' => 'Sales Manager',
+            'sales_label' => 'Malik Zafar Mureed',
             'sales_phone' => '+971 50 252 8036',
             'telephone_label' => 'Telephone',
             'telephone' => '+971 50 538 6979',

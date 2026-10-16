@@ -111,37 +111,49 @@
                     <h2>Frequently asked questions</h2>
                     <p>Can't find your answer? Call or email our sales team.</p>
                 </div>
+
                 <div class="srv-faq-right">
-                    <details class="srv-details" name="faq">
-                        <summary>Where do we source from? <span class="srv-icon">+</span></summary>
-                        <div class="srv-details-content">
-                            We source from trusted agricultural hubs across the globe to ensure the highest quality and year-round availability.
-                        </div>
-                    </details>
-                    <details class="srv-details" name="faq">
-                        <summary>Do you offer wholesale pricing? <span class="srv-icon">+</span></summary>
-                        <div class="srv-details-content">
-                            Yes, we offer competitive wholesale pricing for supermarkets, hotels, restaurants, and other B2B clients.
-                        </div>
-                    </details>
-                    <details class="srv-details" name="faq">
-                        <summary>Can I make custom orders? <span class="srv-icon">+</span></summary>
-                        <div class="srv-details-content">
-                            Absolutely. We can accommodate custom volumes and specific produce requirements based on seasonal availability.
-                        </div>
-                    </details>
-                    <details class="srv-details" name="faq">
-                        <summary>How do we keep produce fresh? <span class="srv-icon">+</span></summary>
-                        <div class="srv-details-content">
-                            We use advanced temperature-controlled logistics and strict grading procedures from farm to final delivery.
-                        </div>
-                    </details>
-                    <details class="srv-details" name="faq">
-                        <summary>How to contact us for bulk orders? <span class="srv-icon">+</span></summary>
-                        <div class="srv-details-content">
-                            You can call us directly at <a href="tel:+971502528036">+971 50 252 8036</a> or email us at <a href="mailto:info@zahratalmadinafruitsandveg.com">info@zahratalmadinafruitsandveg.com</a> to discuss your requirements.
-                        </div>
-                    </details>
+                    @if(!empty($faqs))
+                        @foreach($faqs as $faq)
+                        <details class="srv-details" name="faq">
+                            <summary>{{$faq->question ?? ''}} <span class="srv-icon">+</span></summary>
+                            <div class="srv-details-content">
+                                {{$faq->answer ?? ''}}
+                            </div>
+                        </details>
+                        @endforeach
+                    @else
+                        <details class="srv-details" name="faq">
+                            <summary>Where do we source from? <span class="srv-icon">+</span></summary>
+                            <div class="srv-details-content">
+                                We source from trusted agricultural hubs across the globe to ensure the highest quality and year-round availability.
+                            </div>
+                        </details>
+                        <details class="srv-details" name="faq">
+                            <summary>Do you offer wholesale pricing? <span class="srv-icon">+</span></summary>
+                            <div class="srv-details-content">
+                                Yes, we offer competitive wholesale pricing for supermarkets, hotels, restaurants, and other B2B clients.
+                            </div>
+                        </details>
+                        <details class="srv-details" name="faq">
+                            <summary>Can I make custom orders? <span class="srv-icon">+</span></summary>
+                            <div class="srv-details-content">
+                                Absolutely. We can accommodate custom volumes and specific produce requirements based on seasonal availability.
+                            </div>
+                        </details>
+                        <details class="srv-details" name="faq">
+                            <summary>How do we keep produce fresh? <span class="srv-icon">+</span></summary>
+                            <div class="srv-details-content">
+                                We use advanced temperature-controlled logistics and strict grading procedures from farm to final delivery.
+                            </div>
+                        </details>
+                        <details class="srv-details" name="faq">
+                            <summary>How to contact us for bulk orders? <span class="srv-icon">+</span></summary>
+                            <div class="srv-details-content">
+                                You can call us directly at <a href="tel:+971502528036">+971 50 252 8036</a> or email us at <a href="mailto:info@zahratalmadinafruitsandveg.com">info@zahratalmadinafruitsandveg.com</a> to discuss your requirements.
+                            </div>
+                        </details>
+                    @endif
                 </div>
             </div>
         </section>

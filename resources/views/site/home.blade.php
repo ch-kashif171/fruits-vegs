@@ -7,11 +7,15 @@
                 @if(isset($sliders) && $sliders->isNotEmpty())
                     @foreach($sliders as $slider)
                         <div class="swiper-slide">
-                            <img src="{{ asset($slider->image_path) }}" alt="{{ $slider->title }}">
+                            <img src="{{ asset($slider->image_path) }}" alt="{{ strip_tags($slider->title) }}" @if($loop->first) fetchpriority="high" @else loading="lazy" @endif>
                             <div class="wrap w-full z-10 grid lg:grid-cols-2 px-6 slider-mt">
                                 <div>
                                     @if($slider->title)
-                                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-sans font-bold leading-tight mb-6">{!! nl2br(e($slider->title)) !!}</h1>
+                                        @if($loop->first)
+                                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-sans font-bold leading-tight mb-6">{!! nl2br(e($slider->title)) !!}</h1>
+                                        @else
+                                            <p class="text-4xl md:text-5xl lg:text-6xl font-sans font-bold leading-tight mb-6">{!! nl2br(e($slider->title)) !!}</p>
+                                        @endif
                                     @endif
                                     @if($slider->subtitle)
                                         <p class="text-white/80 text-lg mb-8 max-w-lg">{{ $slider->subtitle }}</p>
@@ -24,7 +28,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                @endforeach
                 @else
                     <!-- Fallback Slide 1 -->
                 <div class="swiper-slide">

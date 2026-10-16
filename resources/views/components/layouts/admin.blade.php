@@ -37,9 +37,9 @@
                 <a href="{{ route('admin.sliders.index') }}" @class(['flex items-center gap-2 rounded-md px-3 py-2 transition-colors', 'bg-white/15 text-white font-medium' => request()->routeIs('admin.sliders.*'), 'text-white/80 hover:bg-white/10 hover:text-white' => ! request()->routeIs('admin.sliders.*')])>
                     <i class="fa-solid fa-images w-5 text-center"></i> Sliders
                 </a>
-                <a href="{{ route('admin.features.index') }}" @class(['flex items-center gap-2 rounded-md px-3 py-2 transition-colors', 'bg-white/15 text-white font-medium' => request()->routeIs('admin.features.*'), 'text-white/80 hover:bg-white/10 hover:text-white' => ! request()->routeIs('admin.features.*')])>
+                {{--<a href="{{ route('admin.features.index') }}" @class(['flex items-center gap-2 rounded-md px-3 py-2 transition-colors', 'bg-white/15 text-white font-medium' => request()->routeIs('admin.features.*'), 'text-white/80 hover:bg-white/10 hover:text-white' => ! request()->routeIs('admin.features.*')])>
                     <i class="fa-solid fa-list w-5 text-center"></i> Features
-                </a>
+                </a>--}}
                 <a href="{{ route('admin.produce-items.index') }}" @class(['flex items-center gap-2 rounded-md px-3 py-2 transition-colors', 'bg-white/15 text-white font-medium' => request()->routeIs('admin.produce-items.*'), 'text-white/80 hover:bg-white/10 hover:text-white' => ! request()->routeIs('admin.produce-items.*')])>
                     <i class="fa-solid fa-leaf w-5 text-center"></i> Produce
                 </a>

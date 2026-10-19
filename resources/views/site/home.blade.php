@@ -300,27 +300,49 @@
                     <span class="alter-danger">{{session('error')}}</span>
                 @endif
 
+                @if($errors->any())
+                    <div class="mb-4 rounded-md bg-red-50 p-4 border border-tomato/30 text-xs text-tomato">
+                        <ul class="list-disc list-inside space-y-1">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ route('contact.store') }}" class="grid gap-4">
                     @csrf
                     <div>
-                        <input name="name" type="text" placeholder="Your Name" required class="w-full rounded-sm border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none">
+                        <input name="name" type="text" value="{{ old('name') }}" placeholder="Your Name" required class="w-full rounded-sm border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none">
+                        @error('name')<span class="text-xs text-tomato mt-1 block">{{ $message }}</span>@enderror
                     </div>
                     <div class="grid grid-cols-2 gap-4">
-                        <input name="phone" type="tel" placeholder="Phone Number" required class="w-full rounded-sm border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none">
-                        <input name="email" type="email" placeholder="Email Address" required class="w-full rounded-sm border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none">
+                        <div>
+                            <input name="phone" type="tel" value="{{ old('phone') }}" placeholder="Phone Number" required class="w-full rounded-sm border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none">
+                            @error('phone')<span class="text-xs text-tomato mt-1 block">{{ $message }}</span>@enderror
+                        </div>
+                        <div>
+                            <input name="email" type="email" value="{{ old('email') }}" placeholder="Email Address" required class="w-full rounded-sm border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none">
+                            @error('email')<span class="text-xs text-tomato mt-1 block">{{ $message }}</span>@enderror
+                        </div>
                     </div>
                     <div>
                         <select name="subject" class="w-full rounded-sm border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none text-muted">
                             <option value="">Inquiry Type</option>
-                            <option value="wholesale">Wholesale Order</option>
-                            <option value="import">Import Inquiry</option>
-                            <option value="export">Export Inquiry</option>
-                            <option value="other">Other</option>
+                            <option value="wholesale" @selected(old('subject') === 'wholesale')>Wholesale Order</option>
+                            <option value="import" @selected(old('subject') === 'import')>Import Inquiry</option>
+                            <option value="export" @selected(old('subject') === 'export')>Export Inquiry</option>
+                            <option value="other" @selected(old('subject') === 'other')>Other</option>
                         </select>
+                        @error('subject')<span class="text-xs text-tomato mt-1 block">{{ $message }}</span>@enderror
                     </div>
                     <div>
-                        <textarea name="message" placeholder="Message details..." required class="h-24 w-full resize-none rounded-sm border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none"></textarea>
+                        <textarea name="message" placeholder="Message details..." required class="h-24 w-full resize-none rounded-sm border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none">{{ old('message') }}</textarea>
+                        @error('message')<span class="text-xs text-tomato mt-1 block">{{ $message }}</span>@enderror
                     </div>
+
+                    <x-captcha variant="compact" />
+
                     <button type="submit" class="w-full rounded-sm bg-teal px-6 py-4 text-xs font-bold uppercase text-white hover:bg-forest-deep transition-colors mt-2">Send message</button>
                 </form>
             </div>

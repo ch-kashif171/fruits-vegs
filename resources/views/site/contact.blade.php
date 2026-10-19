@@ -75,7 +75,7 @@
             </div>
 
             <!-- Contact Form -->
-            <div class="bg-white p-8 lg:p-10 rounded-2xl shadow-2xl border border-line sticky top-32 lg:col-span-3">
+            <div id="contact-us" class="bg-white p-8 lg:p-10 rounded-2xl shadow-2xl border border-line sticky top-32 lg:col-span-3">
                 <h3 class="font-sans font-bold text-2xl text-forest-deep mb-6">Send us a message</h3>
 
                 @if(session('success'))
@@ -87,30 +87,43 @@
                     </div>
                 @endif
 
+                @if($errors->any())
+                    <div class="mb-6 rounded-md bg-red-50 p-4 border border-tomato/30 text-xs text-tomato">
+                        <ul class="list-disc list-inside space-y-1">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ route('contact.store') }}" class="grid gap-5">
                     @csrf
                     <div>
                         <label for="name" class="block text-sm font-bold text-forest-deep mb-1">Name</label>
-                        <input id="name" name="name" type="text" placeholder="Your Name" required class="w-full rounded-md border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none transition-all">
+                        <input id="name" name="name" type="text" value="{{ old('name') }}" placeholder="Your Name" required class="w-full rounded-md border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none transition-all">
                         @error('name')<span class="text-xs text-tomato mt-1 block">{{ $message }}</span>@enderror
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
                             <label for="phone" class="block text-sm font-bold text-forest-deep mb-1">Phone Number</label>
-                            <input id="phone" name="phone" type="tel" placeholder="+971..." required class="w-full rounded-md border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none transition-all">
+                            <input id="phone" name="phone" type="tel" value="{{ old('phone') }}" placeholder="+971..." required class="w-full rounded-md border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none transition-all">
                             @error('phone')<span class="text-xs text-tomato mt-1 block">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-bold text-forest-deep mb-1">Email</label>
-                            <input id="email" name="email" type="email" placeholder="email@example.com" required class="w-full rounded-md border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none transition-all">
+                            <input id="email" name="email" type="email" value="{{ old('email') }}" placeholder="email@example.com" required class="w-full rounded-md border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none transition-all">
                             @error('email')<span class="text-xs text-tomato mt-1 block">{{ $message }}</span>@enderror
                         </div>
                     </div>
                     <div>
                         <label for="message" class="block text-sm font-bold text-forest-deep mb-1">Message</label>
-                        <textarea id="message" name="message" placeholder="How can we help you?" required class="h-32 w-full resize-none rounded-md border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none transition-all"></textarea>
+                        <textarea id="message" name="message" placeholder="How can we help you?" required class="h-32 w-full resize-none rounded-md border border-line bg-mist px-4 py-3 text-sm focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal outline-none transition-all">{{ old('message') }}</textarea>
                         @error('message')<span class="text-xs text-tomato mt-1 block">{{ $message }}</span>@enderror
                     </div>
+
+                    <x-captcha variant="default" />
+
                     <button type="submit" class="w-full rounded-md bg-teal px-6 py-4 text-sm font-bold uppercase text-white hover:bg-forest-deep transition-colors mt-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5">Send message</button>
                 </form>
             </div>

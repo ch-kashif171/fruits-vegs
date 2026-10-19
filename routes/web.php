@@ -27,6 +27,9 @@ Route::get('/contact', [ContactController::class, 'create'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])
     ->middleware('throttle:contact')
     ->name('contact.store');
+Route::get('/captcha/refresh', [ContactController::class, 'refreshCaptcha'])
+    ->middleware('throttle:30,1')
+    ->name('captcha.refresh');
 
 Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 Route::get('/robots.txt', function () {

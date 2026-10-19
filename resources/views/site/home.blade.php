@@ -284,8 +284,22 @@
                 </div>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-2xl text-ink">
+            <div class="bg-white p-8 rounded-xl shadow-2xl text-ink" id="contact-us">
                 <h3 class="font-sans font-bold text-2xl text-forest-deep mb-6">Send us a message</h3>
+
+                @if(session('success'))
+                    <div class="mb-6 rounded-md bg-leaf/20 p-4 border border-leaf">
+                        <div class="flex">
+                            <div class="flex-shrink-0"><i class="fa-solid fa-circle-check text-leaf"></i></div>
+                            <div class="ml-3"><p class="text-sm font-medium text-forest-deep">{{ session('success') }}</p></div>
+                        </div>
+                    </div>
+                @endif
+
+                @if(session('error'))
+                    <span class="alter-danger">{{session('error')}}</span>
+                @endif
+
                 <form method="POST" action="{{ route('contact.store') }}" class="grid gap-4">
                     @csrf
                     <div>

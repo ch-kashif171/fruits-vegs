@@ -3,10 +3,12 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EnquiryController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProduceItemController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Site\AboutController;
@@ -14,6 +16,7 @@ use App\Http\Controllers\Site\ContactController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\Site\ProduceController;
 use App\Http\Controllers\Site\ServiceController;
+use App\Http\Controllers\Site\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -24,6 +27,11 @@ Route::get('/contact', [ContactController::class, 'create'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])
     ->middleware('throttle:contact')
     ->name('contact.store');
+
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
+Route::get('/robots.txt', function () {
+    return response(view('robots'), 200)->header('Content-Type', 'text/plain');
+})->name('robots');
 
 Route::middleware('guest')->group(function (): void {
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
@@ -46,8 +54,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function (): v
     Route::get('/pages/{page}/edit', [PageController::class, 'edit'])->name('pages.edit');
     Route::put('/pages/{page}', [PageController::class, 'update'])->name('pages.update');
     Route::resource('services', AdminServiceController::class)->except(['show']);
-    Route::resource('sliders', \App\Http\Controllers\Admin\SliderController::class)->except(['show']);
-    Route::resource('features', \App\Http\Controllers\Admin\FeatureController::class)->except(['show']);
+    Route::resource('sliders', SliderController::class)->except(['show']);
+    Route::resource('features', FeatureController::class)->except(['show']);
     Route::resource('produce-items', ProduceItemController::class)->except(['show']);
     Route::resource('faqs', FaqController::class)->except(['show']);
     Route::get('/enquiries', [EnquiryController::class, 'index'])->name('enquiries.index');

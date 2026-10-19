@@ -7,8 +7,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $page->title ?? $siteName }}</title>
-    <meta name="description" content="{{ $page->meta_description ?? '' }}">
+    @include('layouts.partials.seo', [
+        'title'       => $page->title ?? null,
+        'description' => $page->meta_description ?? null,
+        'image'       => $page->hero_image ? asset($page->hero_image) : null,
+        'pageSlug'    => $page->slug ?? null,
+    ])
     <link rel="icon" href="{{ asset($logoPath) }}" type="image/svg+xml">
     @fonts
     @vite(['resources/css/app.css', 'resources/js/app.js'])

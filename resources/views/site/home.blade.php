@@ -234,19 +234,19 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                @if(isset($produceItems) && $produceItems->isNotEmpty())
-                    @foreach($produceItems->take(6) as $item)
+                @if(-isset($produceItems) && $produceItems->isNotEmpty())
+                    @foreach($produceItems as $item)
                         <div class="bg-mist border border-line rounded-lg p-6 text-center hover:border-teal transition-colors shadow-sm">
-                            <div class="text-4xl mb-3">{{ $item->icon ?? '🍎' }}</div>
+                            <div class="text-4xl mb-3"><img class="sm-icon" src="{{ $item->image_path ?? '' }}"></div>
                             <h4 class="font-bold text-forest-deep text-sm">{{ $item->name }}</h4>
                         </div>
                     @endforeach
                 @else
                     <!-- Fallback if database is empty -->
                     <div class="bg-mist border border-line rounded-lg p-6 text-center hover:border-teal transition-colors shadow-sm"><div class="text-4xl mb-3">🧄</div><h4 class="font-bold text-forest-deep text-sm">Garlic</h4></div>
-                    <div class="bg-mist border border-line rounded-lg p-6 text-center hover:border-teal transition-colors shadow-sm"><div class="text-4xl mb-3">🍑</div><h4 class="font-bold text-forest-deep text-sm">Apricots & Peaches</h4></div>
-                    <div class="bg-mist border border-line rounded-lg p-6 text-center hover:border-teal transition-colors shadow-sm"><div class="text-4xl mb-3">🥑</div><h4 class="font-bold text-forest-deep text-sm">Avocados</h4></div>
-                    <div class="bg-mist border border-line rounded-lg p-6 text-center hover:border-teal transition-colors shadow-sm"><div class="text-4xl mb-3">🍎</div><h4 class="font-bold text-forest-deep text-sm">Nectarines & Plums</h4></div>
+                    <div class="bg-mist border border-line rounded-lg p-6 text-center hover:border-teal transition-colors shadow-sm"><div class="text-4xl mb-3">🍎</div><h4 class="font-bold text-forest-deep text-sm">Apples</h4></div>
+                    <div class="bg-mist border border-line rounded-lg p-6 text-center hover:border-teal transition-colors shadow-sm"><div class="text-4xl mb-3">🥭</div><h4 class="font-bold text-forest-deep text-sm">Mangoes</h4></div>
+                    <div class="bg-mist border border-line rounded-lg p-6 text-center hover:border-teal transition-colors shadow-sm"><div class="text-4xl mb-3">🧅</div><h4 class="font-bold text-forest-deep text-sm">Onion</h4></div>
                     <div class="bg-mist border border-line rounded-lg p-6 text-center hover:border-teal transition-colors shadow-sm"><div class="text-4xl mb-3">🍊</div><h4 class="font-bold text-forest-deep text-sm">Oranges</h4></div>
                     <div class="bg-mist border border-line rounded-lg p-6 text-center hover:border-teal transition-colors shadow-sm"><div class="text-4xl mb-3">🍅</div><h4 class="font-bold text-forest-deep text-sm">Tomatoes & Peppers</h4></div>
                 @endif

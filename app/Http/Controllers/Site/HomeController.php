@@ -17,7 +17,7 @@ class HomeController extends Controller
         return view('site.home', [
             'page' => Page::query()->forSlug('home')->firstOrFail(),
             'services' => Service::query()->active()->ordered()->get(),
-            'produceItems' => ProduceItem::query()->ordered()->get(),
+            'produceItems' => ProduceItem::query()->active()->ordered()->take(6)->get(),
             'sliders' => Slider::where('is_active', true)->orderBy('sort_order')->get(),
             'homeStats' => Feature::where('type', 'stat')->orderBy('sort_order')->get(),
             'homeExports' => Feature::where('type', 'home_export')->orderBy('sort_order')->get(),

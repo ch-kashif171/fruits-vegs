@@ -49,3 +49,14 @@
 .pv-card-body {
     margin-top: 10px;
 }
+.sm-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 20%;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    padding: 10px;
+    background-color: #fff;
+    mix-blend-mode: multiply;
+}

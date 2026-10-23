@@ -51,7 +51,7 @@
                     @foreach($fruits as $fruit)
                         <a href="{{ route('contact') }}" class="pv-card pv-card-fruit no-underline text-current">
                             @if(!empty($fruit->image_path))
-                                <img class="fruit-veg" src="{{$fruit->image_path}}" alt="{{ $fruit->name }}" loading="lazy">
+                                <img class="fruit-veg" src="{{$fruit->image_path}}" alt="{{ $fruit->name ?? 'zahrat al madina' }}" loading="lazy">
                             @else
                                 <div class="pv-card-emoji">{{ $fruit->icon ?? '🍎' }}</div>
                             @endif
@@ -117,7 +117,7 @@
                     @foreach($vegetables as $vegetable)
                         <a href="{{ route('contact') }}" class="pv-card pv-card-veg no-underline text-current">
                             @if(!empty($vegetable->image_path))
-                                <img class="fruit-veg" src="{{$vegetable->image_path}}" alt="{{ $vegetable->name }}" loading="lazy">
+                                <img class="fruit-veg" src="{{$vegetable->image_path}}" alt="{{ $vegetable->name ?? 'zahrat al madina' }}" loading="lazy">
                             @else
                                 <div class="pv-card-emoji">{{ $vegetable->icon ?? '🥦' }}</div>
                             @endif

@@ -28,7 +28,7 @@
                         @foreach($services as $service)
                             <a href="{{ route('contact') }}" class="srv-card srv-{{ $service->theme }}">
                                 @if($service->icon)
-                                    <img src="{{ asset($service->icon) }}" alt="{{ $service->title }}" loading="lazy">
+                                    <img src="{{ asset($service->icon) }}" alt="{{ $service->title ?? 'zahrat al madina' }}" loading="lazy">
                                 @endif
                                 <div class="srv-card-content">
                                     <h3>{{ $service->title }}</h3>

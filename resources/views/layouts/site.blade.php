@@ -14,7 +14,7 @@
     <header class="absolute inset-x-0 top-0 z-20 py-4 bg-white shadow-sm border-b border-line">
         <div class="wrap flex items-center justify-between gap-6">
             <a href="{{ route('home') }}" class="flex items-center gap-3 text-ink no-underline hover:opacity-90 transition-opacity">
-                <img src="{{ asset($logoPath) }}" alt="{{ $siteName }} logo" width="56" height="56" class="size-14 rounded-full bg-mist p-1 shadow-sm">
+                <img src="{{ asset($logoPath) }}" alt="{{ $siteName ?? 'zahrat al madina' }} logo" width="56" height="56" class="size-14 rounded-full bg-mist p-1 shadow-sm">
                 <span class="flex flex-col leading-tight">
                     <strong class="font-sans font-bold text-xl tracking-wide text-forest-deep">{{ $siteName }}</strong>
                     <span class="hidden text-[0.70rem] tracking-[0.16em] uppercase text-teal sm:block font-semibold">{{ $tagline }}</span>
@@ -51,7 +51,7 @@
             <div class="grid gap-10 md:grid-cols-[1.5fr_.7fr_1.2fr] md:gap-14">
                 <div>
                     <a href="{{ route('home') }}" class="mb-6 flex items-center gap-3 text-white no-underline hover:opacity-90 transition-opacity">
-                        <img src="{{ asset($logoPath) }}" alt="{{ $siteName }} logo" width="72" height="72" class="size-[72px] rounded-full bg-white p-1 shadow-lg">
+                        <img src="{{ asset($logoPath) }}" alt="{{ $siteName ?? 'zahrat al madina' }} logo" width="72" height="72" class="size-[72px] rounded-full bg-white p-1 shadow-lg">
                         <span class="flex flex-col leading-tight">
                             <strong class="font-serif text-2xl">{{ $siteName }}</strong>
                             <span class="text-[0.75rem] font-bold tracking-[0.15em] text-teal uppercase mt-0.5">{{ $tagline }}</span>

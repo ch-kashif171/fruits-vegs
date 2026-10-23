@@ -7,7 +7,7 @@
                 @if(isset($sliders) && $sliders->isNotEmpty())
                     @foreach($sliders as $slider)
                         <div class="swiper-slide">
-                            <img src="{{ asset($slider->image_path) }}" alt="{{ strip_tags($slider->title) }}" @if($loop->first) fetchpriority="high" @else loading="lazy" @endif>
+                            <img src="{{ asset($slider->image_path) }}" alt="{{ strip_tags($slider->title) ?? 'zahrat al madina' }}" @if($loop->first) fetchpriority="high" @else loading="lazy" @endif>
                             <div class="wrap w-full z-10 grid lg:grid-cols-2 px-3 sm:px-6 slider-mt">
                                 <div class="slider-txt">
                                     @if($slider->title)
@@ -152,7 +152,7 @@
                         @endphp
                         <div class="group border border-line rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                             <div class="h-48 overflow-hidden bg-mist">
-                                <img src="{{ asset($image) }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="{{ $service->name }}">
+                                <img src="{{ asset($image) }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="{{ $service->name ?? 'zahrat al madina' }}">
                             </div>
                             <div class="p-8">
                                 <h3 class="font-sans font-bold text-xl text-forest-deep mb-3">{{ $service->name }}</h3>
@@ -236,7 +236,7 @@
                 @if(isset($produceItems) && $produceItems->isNotEmpty())
                     @foreach($produceItems as $item)
                         <div class="bg-mist border border-line rounded-lg p-4 sm:p-6 text-center hover:border-teal transition-colors shadow-sm">
-                            <div class="text-4xl mb-3"><img class="sm-icon" src="{{ $item->image_path ?? '' }}" alt="{{ $item->name }}"></div>
+                            <div class="text-4xl mb-3"><img class="sm-icon" src="{{ $item->image_path ?? '' }}" alt="{{ $item->name ?? 'zahrat al madina' }}"></div>
                             <h4 class="font-bold text-forest-deep text-xs sm:text-sm">{{ $item->name }}</h4>
                         </div>
                     @endforeach

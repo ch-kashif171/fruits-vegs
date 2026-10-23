@@ -18,7 +18,7 @@
 <div>
     <label for="theme" class="mb-1 block text-sm font-semibold">Theme</label>
     <select id="theme" name="theme" class="w-full rounded-md border border-line px-3 py-2">
-        @foreach (['import' => 'Import (green)', 'export' => 'Export (teal)', 'wholesale' => 'Wholesale (orange)'] as $value => $label)
+        @foreach (['import' => 'Import', 'export' => 'Export', 'wholesale' => 'Wholesale', 'retail' => 'Retail'] as $value => $label)
             <option value="{{ $value }}" @selected(old('theme', $service?->theme) === $value)>{{ $label }}</option>
         @endforeach
     </select>

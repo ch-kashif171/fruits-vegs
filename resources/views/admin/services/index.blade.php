@@ -6,6 +6,7 @@
         <table class="w-full text-left text-sm">
             <thead class="bg-mist text-muted">
                 <tr>
+                    <th class="px-4 py-3 font-medium">Image</th>
                     <th class="px-4 py-3 font-medium">Title</th>
                     <th class="px-4 py-3 font-medium">Theme</th>
                     <th class="px-4 py-3 font-medium">Status</th>
@@ -15,7 +16,8 @@
             <tbody>
                 @forelse ($services as $service)
                     <tr class="border-t border-line">
-                        <td class="px-4 py-3 font-semibold">{{ $service->icon }} {{ $service->title }}</td>
+                        <td class="px-4 py-3 font-semibold"> <img style="width: 50px" src="{{ asset($service->icon) }}"></td>
+                        <td class="px-4 py-3 font-semibold"> {{ $service->title }}</td>
                         <td class="px-4 py-3 capitalize">{{ $service->theme }}</td>
                         <td class="px-4 py-3">{{ $service->is_active ? 'Active' : 'Hidden' }}</td>
                         <td class="px-4 py-3 text-right">

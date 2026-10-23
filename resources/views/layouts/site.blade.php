@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $page->title ?? $siteName }}</title>
     <meta name="description" content="{{ $page->meta_description ?? '' }}">
-    <link rel="icon" href="{{ asset($logoPath) }}" type="image/svg+xml">
+
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}">
     @fonts
     @vite(['resources/css/app.css', 'resources/js/app.js'])

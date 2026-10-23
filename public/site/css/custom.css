@@ -1,65 +1,514 @@
-.pv-card-fruit .pv-card-tag {
-    margin-top: 20px !important;
+/* ============================================================
+   CUSTOM RESPONSIVE STYLES — custom.css
+   Fixes mobile & tablet responsiveness across all site pages
+   ============================================================ */
+
+/* Global overflow control */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
-.banner-ht{
-    min-height: 459px;
+
+img, svg, video {
+    max-width: 100%;
 }
+.slider-txt {
+    padding-left: 50px;
+}
+
+/* Page Hero Banner responsive height */
+.banner-ht {
+    min-height: 280px;
+}
+@media (min-width: 768px) {
+    .banner-ht {
+        min-height: 380px;
+    }
+}
+@media (min-width: 1024px) {
+    .banner-ht {
+        min-height: 440px;
+    }
+}
+
+/* ── PRODUCE / FRUITS & VEGETABLES PAGE ── */
+
+.pv-section {
+    padding: 44px 0;
+}
+@media (min-width: 768px) {
+    .pv-section {
+        padding: 76px 0;
+    }
+}
+
 .pv-section-head {
-    margin-top: -55px;
+    margin-top: 0 !important;
+    margin-bottom: 26px !important;
+    text-align: center;
+    max-width: 640px;
+    margin-inline: auto;
 }
-.swiper-button-prev:after, .swiper-button-next:after {
-    font-size: 30px;
-    font-weight: 600;
-    color: #ffffff;
+@media (min-width: 768px) {
+    .pv-section-head {
+        margin-top: -20px !important;
+        margin-bottom: 44px !important;
+    }
 }
 
+.pv-section-title {
+    font-size: clamp(1.45rem, 4vw, 2.3rem);
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.pv-section-desc {
+    font-size: clamp(0.88rem, 2vw, 1.05rem);
+    line-height: 1.55;
+    padding: 0 4px;
+}
+
+/* Grid: 2 columns on mobile (minmax prevents clipping), 3 on tablet, 4 on desktop */
 .pv-grid {
-    grid-template-columns: repeat(2,1fr);
-    gap: 16px;
-    display: grid
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-@media (width>=640px) {
+@media (min-width: 480px) {
     .pv-grid {
-        grid-template-columns: repeat(3,1fr)
+        gap: 16px;
     }
 }
 
-@media (width>=900px) {
+@media (min-width: 640px) {
     .pv-grid {
-        grid-template-columns: repeat(4,1fr);
-        gap: 20px
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
     }
 }
 
-/* removed the @media (width>=1100px) { repeat(5,1fr) } block */
+@media (min-width: 900px) {
+    .pv-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
 
+/* Product Card */
+.pv-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: center;
+    padding: 16px 8px 14px;
+    border: 1.5px solid #e2e8f0;
+    background: #fff;
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-width: 0; /* Prevents flex child overflow */
+}
+
+@media (min-width: 480px) {
+    .pv-card {
+        padding: 20px 12px 18px;
+    }
+}
+
+@media (min-width: 768px) {
+    .pv-card {
+        padding: 28px 16px 24px;
+        border-radius: 18px;
+    }
+}
+
+.pv-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(6, 78, 59, .14);
+    border-color: #059669;
+}
+
+/* Product Image: Responsive, cleanly bounded, perfectly centered, no clipping */
 .fruit-veg {
-    max-width: 220px;
-    height: 220px;
+    width: 100%;
+    max-width: 115px;
+    aspect-ratio: 1 / 1;
+    height: auto;
     display: block;
     margin: 0 auto;
     object-fit: contain;
-    box-shadow: 0px 2px 10px 1px lightgray;
-    border-radius: 20%;
-    padding: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    padding: 8px;
     background-color: #fff;
     mix-blend-mode: multiply;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
 }
+
+@media (min-width: 380px) {
+    .fruit-veg {
+        max-width: 130px;
+    }
+}
+
+@media (min-width: 480px) {
+    .fruit-veg {
+        max-width: 145px;
+        padding: 10px;
+    }
+}
+
+@media (min-width: 640px) {
+    .fruit-veg {
+        max-width: 165px;
+        border-radius: 18px;
+    }
+}
+
+@media (min-width: 900px) {
+    .fruit-veg {
+        max-width: 195px;
+        padding: 12px;
+        border-radius: 20px;
+    }
+}
+
+.pv-card:hover .fruit-veg {
+    transform: scale(1.05);
+}
+
+.pv-card-emoji {
+    font-size: 2.4rem;
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+    transition: transform .3s ease;
+}
+
+@media (min-width: 640px) {
+    .pv-card-emoji {
+        font-size: 3rem;
+        margin-bottom: 12px;
+    }
+}
+
+.pv-card:hover .pv-card-emoji {
+    transform: scale(1.15) rotate(-4deg);
+}
+
 .pv-card-body {
     margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.pv-card-name {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.25;
+    margin-bottom: 2px;
+    word-break: break-word;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .pv-card-name {
+        font-size: 1.05rem;
+        margin-bottom: 4px;
+    }
+}
+
+.pv-card .pv-card-tag,
+.pv-card-fruit .pv-card-tag,
+.pv-card-veg .pv-card-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px !important;
+    display: block;
+    line-height: 1.2;
+    text-align: center;
+    transition: opacity 0.2s ease;
+    padding-top: 25px;
+}
+
+@media (min-width: 640px) {
+    .pv-card .pv-card-tag,
+    .pv-card-fruit .pv-card-tag,
+    .pv-card-veg .pv-card-tag {
+        font-size: 0.72rem;
+        margin-top: 6px !important;
+    }
+}
+
+.pv-card-fruit .pv-card-tag { color: #b45309; }
+.pv-card-veg .pv-card-tag { color: #166534; }
+
+.pv-card:hover .pv-card-tag {
+    opacity: 0.3;
+}
+
+/* Card Overlay CTA on desktop */
+.pv-card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 14px;
+    background: linear-gradient(to top, rgba(6, 78, 59, .92) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity .25s ease;
+    border-radius: 16px;
+    pointer-events: none;
+}
+
+.pv-card:hover .pv-card-overlay {
+    opacity: 1;
+}
+
+.pv-card-cta {
+    display: inline-block;
+    background: #fff;
+    color: #064e3b;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Produce Intro Strip Responsive */
+@media (max-width: 639px) {
+    .pv-intro-strip {
+        padding: 14px 0 !important;
+    }
+    .pv-strip-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px 12px !important;
+    }
+    .pv-strip-item {
+        font-size: 0.75rem !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 6px 0 !important;
+    }
+    .pv-strip-icon {
+        font-size: 1.05rem !important;
+    }
+    .pv-banner-inner {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 14px !important;
+    }
+    .pv-banner p {
+        font-size: 1rem !important;
+    }
+    .pv-banner-btn {
+        width: auto !important;
+        display: inline-block !important;
+        padding: 10px 22px !important;
+    }
+    .pv-why {
+        padding: 52px 0 !important;
+    }
+    .pv-why-card {
+        padding: 24px 16px !important;
+    }
+    .pv-cta {
+        padding: 44px 0 !important;
+    }
+    .pv-cta-inner {
+        text-align: center !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    .pv-cta-actions {
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+    }
+    .pv-cta-actions a {
+        text-align: center !important;
+        width: 100% !important;
+    }
+}
+
+/* ── HOME HERO SLIDER RESPONSIVENESS ── */
+
+.hero-swiper {
+    width: 100%;
+    min-height: 480px;
+    height: auto;
+}
+
+@media (min-width: 640px) {
+    .hero-swiper {
+        min-height: 520px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-swiper {
+        height: 75vh;
+        min-height: 560px;
+    }
+}
+
+.hero-swiper .swiper-slide {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 85px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    min-height: 480px;
+}
+
+@media (min-width: 640px) {
+    .hero-swiper .swiper-slide {
+        min-height: 520px;
+        padding-top: 95px;
+        padding-bottom: 55px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-swiper .swiper-slide {
+        min-height: 560px;
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+}
+
+.hero-swiper .swiper-slide img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Gradient Overlay with solid contrast across mobile screens */
+.hero-swiper .swiper-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(2, 44, 34, 0.90) 0%, rgba(2, 44, 34, 0.78) 100%);
+    z-index: -1;
+}
+
+@media (min-width: 768px) {
+    .hero-swiper .swiper-slide::after {
+        background: linear-gradient(to right, rgba(2, 44, 34, 0.94) 0%, rgba(2, 44, 34, 0.6) 65%, rgba(2, 44, 34, 0.3) 100%);
+    }
+}
+
+.slider-mt {
+    margin-top: 0 !important;
+    padding-left: 0 !important;
+}
+
+@media (min-width: 1024px) {
+    .slider-mt {
+        padding-left: 20px !important;
+    }
+}
+
+/* Hide swiper prev/next on mobile, show on tablet & desktop */
+.hero-swiper .swiper-button-prev,
+.hero-swiper .swiper-button-next {
+    display: none !important;
+}
+
+@media (min-width: 768px) {
+    .hero-swiper .swiper-button-prev,
+    .hero-swiper .swiper-button-next {
+        display: flex !important;
+        width: 44px;
+        height: 44px;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(4px);
+        border-radius: 50%;
+        color: #ffffff;
+        transition: background 0.2s ease;
+    }
+    .hero-swiper .swiper-button-prev:hover,
+    .hero-swiper .swiper-button-next:hover {
+        background: rgba(5, 150, 105, 0.85);
+    }
+    .hero-swiper .swiper-button-prev:after,
+    .hero-swiper .swiper-button-next:after {
+        font-size: 18px !important;
+        font-weight: 700;
+        color: #ffffff;
+    }
+}
+
+/* Clean Pagination Bullets */
+.hero-swiper .swiper-pagination {
+    bottom: 16px !important;
+}
+
+.hero-swiper .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px !important;
+    transition: all 0.25s ease;
+    background: #fff;
+    opacity: 0.5;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+    width: 22px;
+    border-radius: 999px;
+    background: #059669;
+    opacity: 1;
+}
+
+/* Home Produce Showcase icons */
 .sm-icon {
-    width: 75px;
-    height: 75px;
-    border-radius: 20%;
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
     display: block;
     margin: 0 auto;
     object-fit: contain;
-    padding: 10px;
+    padding: 6px;
     background-color: #fff;
     mix-blend-mode: multiply;
 }
+
+@media (min-width: 640px) {
+    .sm-icon {
+        width: 75px;
+        height: 75px;
+        border-radius: 18px;
+        padding: 10px;
+    }
+}
+
+/* Notification alerts */
 .alter-success,
 .alter-danger {
     display: block;
@@ -71,7 +520,68 @@
 }
 
 .alter-danger {
-    color: var(--color-tomato);
+    color: #ef4444;
     background-color: #f8d7da;
     border-color: #f5c6cb;
+}
+
+/* ── SERVICES PAGE RESPONSIVE REFINEMENTS ── */
+@media (max-width: 639px) {
+    .srv-grid-sec {
+        padding: 48px 0 !important;
+    }
+    .srv-grid-header {
+        margin-bottom: 32px !important;
+    }
+    .srv-grid-header h2 {
+        font-size: 24px !important;
+    }
+    .srv-grid-header p {
+        font-size: 15px !important;
+    }
+    .srv-card {
+        padding: 22px 18px !important;
+        min-height: 250px !important;
+    }
+    .srv-card-content h3 {
+        font-size: 22px !important;
+    }
+    .srv-card-content p {
+        font-size: 14px !important;
+    }
+    .srv-process {
+        padding: 56px 0 !important;
+    }
+    .srv-process h2 {
+        font-size: 24px !important;
+        margin-bottom: 36px !important;
+    }
+    .srv-step h3 {
+        font-size: 18px !important;
+    }
+    .srv-faq {
+        padding: 52px 0 !important;
+    }
+    .srv-faq-left h2 {
+        font-size: 24px !important;
+    }
+    .srv-details summary {
+        font-size: 16px !important;
+        padding: 18px 0 !important;
+    }
+    .srv-cta {
+        padding: 48px 0 !important;
+    }
+    .srv-cta h2 {
+        font-size: 24px !important;
+    }
+    .srv-cta-buttons {
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    .srv-cta-buttons a {
+        text-align: center !important;
+        width: 100% !important;
+    }
 }

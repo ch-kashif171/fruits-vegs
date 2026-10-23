@@ -1,11 +1,11 @@
 <x-layouts.site :page="$page">
 
     <!-- Page Hero -->
-    <section class="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-forest-deep text-white relative overflow-hidden banner-ht">
+    <section class="pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-24 bg-forest-deep text-white relative overflow-hidden banner-ht flex items-center">
         <div class="absolute inset-0 opacity-10 pointer-events-none page-hero-glow"></div>
-        <div class="wrap relative z-10 text-center">
-            <h1 class="text-4xl md:text-5xl font-sans font-bold mb-4">{{ $page->title ?? 'Services' }}</h1>
-            <p class="text-mist max-w-2xl mx-auto">{{ $page->hero_subtitle ?? $page->excerpt ?? $page->meta_description ?? 'From the farm to your shelf, handled end to end. We specialize in importing, exporting and distributing premium fresh produce globally.' }}</p>
+        <div class="wrap relative z-10 text-center w-full">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-sans font-bold mb-3 sm:mb-4">{{ $page->title ?? 'Services' }}</h1>
+            <p class="text-mist text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">{{ $page->hero_subtitle ?? $page->excerpt ?? $page->meta_description ?? 'From the farm to your shelf, handled end to end. We specialize in importing, exporting and distributing premium fresh produce globally.' }}</p>
         </div>
 
         <div class="pv-hero-wave">
@@ -32,8 +32,8 @@
                                 @endif
                                 <div class="srv-card-content">
                                     <h3>{{ $service->title }}</h3>
-                                    <p>{{ $service->excerpt }}</p>
-                                    <span>{{ $service->body ?: 'Get in touch' }}</span>
+                                    <p>{{ $service->body }}</p>
+                                    <span>{{ $service->excerpt ?: 'Get in touch' }}</span>
                                 </div>
                             </a>
                         @endforeach

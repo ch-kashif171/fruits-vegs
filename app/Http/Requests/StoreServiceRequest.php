@@ -20,7 +20,7 @@ class StoreServiceRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'icon' => ['nullable', 'image', 'max:2048'],
-            'theme' => ['required', 'string', Rule::in(['import', 'export', 'wholesale'])],
+            'theme' => ['required', 'string', Rule::in(['import', 'export', 'wholesale', 'retail'])],
             'excerpt' => ['required', 'string', 'max:500'],
             'body' => ['required', 'string', 'max:5000'],
             'sort_order' => ['required', 'integer', 'min:0', 'max:9999'],

@@ -5,12 +5,8 @@
         <div class="pv-hero-glow"></div>
         <div class="wrap relative z-10 text-center">
             <div class="pv-hero-badge">🌿 Premium Fresh Produce</div>
-            <h1 class="text-4xl md:text-5xl font-sans font-bold mb-4">{{ $page->title ?? 'Fruits &amp; Vegetables' }}</h1>
-            <p class="pv-hero-sub">{{ $page->hero_subtitle ?? 'Fresh, seasonal and premium-quality produce sourced from trusted farms around the world.' }}</p>
-            {{--<div class="pv-hero-actions">
-                <a href="{{ route('contact') }}" class="pv-btn-solid">Request a Quote</a>
-                <a href="#fruits" class="pv-btn-ghost">Explore Produce</a>
-            </div>--}}
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-sans font-bold mb-3 sm:mb-4">{{ $page->title ?? 'Fruits &amp; Vegetables' }}</h1>
+            <p class="pv-hero-sub text-sm sm:text-base md:text-lg max-w-xl mx-auto px-4">{{ $page->hero_subtitle ?? 'Fresh, seasonal and premium-quality produce sourced from trusted farms around the world.' }}</p>
         </div>
         <div class="pv-hero-wave">
             <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -53,9 +49,9 @@
             <div class="pv-grid">
                 @if($fruits->isNotEmpty())
                     @foreach($fruits as $fruit)
-                        <div class="pv-card pv-card-fruit">
+                        <a href="{{ route('contact') }}" class="pv-card pv-card-fruit no-underline text-current">
                             @if(!empty($fruit->image_path))
-                                <img class="fruit-veg" src="{{$fruit->image_path}}">
+                                <img class="fruit-veg" src="{{$fruit->image_path}}" alt="{{ $fruit->name }}" loading="lazy">
                             @else
                                 <div class="pv-card-emoji">{{ $fruit->icon ?? '🍎' }}</div>
                             @endif
@@ -65,9 +61,9 @@
                                 <p class="pv-card-tag">Fresh Fruit</p>
                             </div>
                             <div class="pv-card-overlay">
-                                <a href="{{ route('contact') }}" class="pv-card-cta">Enquire Now</a>
+                                <span class="pv-card-cta">Enquire Now</span>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 @else
                     {{-- Static fallback --}}
@@ -83,16 +79,16 @@
                         ['icon' => '🍋', 'name' => 'Lemons'],
                         ['icon' => '🍑', 'name' => 'Peaches'],
                     ] as $item)
-                        <div class="pv-card pv-card-fruit">
+                        <a href="{{ route('contact') }}" class="pv-card pv-card-fruit no-underline text-current">
                             <div class="pv-card-emoji">{{ $item['icon'] }}</div>
                             <div class="pv-card-body">
                                 <h3 class="pv-card-name">{{ $item['name'] }}</h3>
                                 <p class="pv-card-tag">Fresh Fruit</p>
                             </div>
                             <div class="pv-card-overlay">
-                                <a href="{{ route('contact') }}" class="pv-card-cta">Enquire Now</a>
+                                <span class="pv-card-cta">Enquire Now</span>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 @endif
             </div>
@@ -119,9 +115,9 @@
             <div class="pv-grid">
                 @if($vegetables->isNotEmpty())
                     @foreach($vegetables as $vegetable)
-                        <div class="pv-card pv-card-veg">
+                        <a href="{{ route('contact') }}" class="pv-card pv-card-veg no-underline text-current">
                             @if(!empty($vegetable->image_path))
-                                <img class="fruit-veg" src="{{$vegetable->image_path}}">
+                                <img class="fruit-veg" src="{{$vegetable->image_path}}" alt="{{ $vegetable->name }}" loading="lazy">
                             @else
                                 <div class="pv-card-emoji">{{ $vegetable->icon ?? '🥦' }}</div>
                             @endif
@@ -130,9 +126,9 @@
                                 <p class="pv-card-tag">Fresh Vegetable</p>
                             </div>
                             <div class="pv-card-overlay">
-                                <a href="{{ route('contact') }}" class="pv-card-cta">Enquire Now</a>
+                                <span class="pv-card-cta">Enquire Now</span>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 @else
                     {{-- Static fallback --}}
@@ -148,16 +144,16 @@
                         ['icon' => '🥔', 'name' => 'Potatoes'],
                         ['icon' => '🌽', 'name' => 'Corn'],
                     ] as $item)
-                        <div class="pv-card pv-card-veg">
+                        <a href="{{ route('contact') }}" class="pv-card pv-card-veg no-underline text-current">
                             <div class="pv-card-emoji">{{ $item['icon'] }}</div>
                             <div class="pv-card-body">
                                 <h3 class="pv-card-name">{{ $item['name'] }}</h3>
                                 <p class="pv-card-tag">Fresh Vegetable</p>
                             </div>
                             <div class="pv-card-overlay">
-                                <a href="{{ route('contact') }}" class="pv-card-cta">Enquire Now</a>
+                                <span class="pv-card-cta">Enquire Now</span>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 @endif
             </div>
